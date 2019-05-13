@@ -1,0 +1,654 @@
+/* ---------- Style Header ---------- */
+#logoVill{
+    position: absolute;
+    z-index: 1;
+}
+#troisbandes{
+    position: absolute;
+    width: 1126px;
+    height: 174px;
+}
+.liheader{
+    float: left;
+}
+.ulheader{
+    list-style-type: none;
+    position: relative;
+}
+.lienheader{
+    text-decoration: none;
+}
+.lienheader:hover{
+    text-decoration: none;
+    color: rgb(179, 81, 1);
+}
+.lienheaderune{
+    color: black;
+    vertical-align: inherit;
+    margin: 25px;
+}
+.lienheaderdeux{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: inherit;
+    margin: 30px;
+}
+.lienheadertrois{
+    color: white;
+    vertical-align: inherit;
+    margin: 18px;
+}
+#divline1{
+    height: 62px;
+    padding-top: 10px;
+}
+#divline2{
+    height: 59px;
+    padding-top: 10px;
+}
+#divline3{
+    height: 59px;
+    padding-top: 8px;
+}
+.divcenterV{
+    vertical-align: sub;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+#divespcli{
+    background-image: url('http://localhost/codei/assets/images/MODAL espace client encadrer.png');
+    background-size: cover;
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    width: 500px;
+    height: 255px;
+    margin-top: 22px;
+    margin-left: -30px;
+    font-size: 13px;
+}
+#paraespcli{
+    color: rgb(100, 100, 100);
+    font-size: 12px;
+}
+#divconn{
+    margin-top: 22px;
+    margin-left: 30px;
+    width: 224px;
+    height: 212px;
+    border-right: 1px grey solid;
+}
+#divinsc{
+    margin-top: 22px;
+    margin-left: 10px;
+    width: 214px;
+    height: 212px;
+}
+.inputconnex{
+    width: 215px;
+    border-radius: 5px;
+    background-color: rgb(207, 207, 207);
+    height: 35px;
+    border-style: none;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+#submitconnex{
+    background: url('http://localhost/codei/assets/images/MODAL espace client bouton connect.png');
+    width: 221px;
+    height: 32px;
+    border: none;
+    margin-left: -3px;
+    margin-top: 10px;
+}
+#btninsc{
+    background: url('http://localhost/codei/assets/images/MODAL espace client bouton inscrire.png');
+    width: 221px;
+    height: 32px;
+    border: none;
+    margin-top: -2px;
+    margin-left: -4px;
+}
+#Mail_Client{
+    margin-top: 5px;
+}
+.lienconnex{
+    color: rgb(0, 0, 65);
+    text-decoration: none;
+}
+.lienconnex:hover{
+    color: rgb(179, 81, 1);
+    text-decoration: none;
+}
+#divderoulguit{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 220px;
+    font-size: 14px;
+    top: 25px;
+    left: 230px;
+}
+#divderoulbatte{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 95px;
+    font-size: 14px;
+    top: 25px;
+    left: 330px;
+}
+#divderoulclav{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 115px;
+    font-size: 14px;
+    top: 25px;
+    left: 422px;
+}
+#divderoulstud{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 95px;
+    font-size: 14px;
+    top: 25px;
+    left: 503px;
+}
+#divderoulsono{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 115px;
+    font-size: 14px;
+    top: 25px;
+    left: 580px;
+}
+#divderouleclair{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 115px;
+    font-size: 14px;
+    top: 25px;
+    left: 664px;
+}
+#divderouldj{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 115px;
+    font-size: 14px;
+    top: 25px;
+    left: 741px;
+}
+#divderoulcase{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 70px;
+    font-size: 14px;
+    top: 25px;
+    left: 806px;
+}
+#divderoulacces{
+    background-image: url('http://localhost/codei/assets/images/MODAL guitare encadrer.png');
+    background-size: cover;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 115px;
+    font-size: 14px;
+    top: 25px;
+    left: 901px;
+}
+.lienderoule{
+    text-decoration: none;
+    color: black;
+}
+.lienderoule:hover{
+    text-decoration: none;
+    color: rgb(179, 81, 1);
+}
+#btnmenu{
+    position: absolute;
+    z-index: 3;
+    background-image: url('http://localhost/ci/assets/images/fondbtn.jpg');
+    border-radius: 15px;
+}
+#lienmenu{
+    color: white;
+}
+#Mail_Client_co{
+    margin-top: 5px;
+}
+
+/* ---------- Style body ---------- */
+body{
+    background-image: url('http://localhost/codei/assets/images/background village.png');
+    background-attachment:fixed;
+    background-size: cover;
+}
+#divbandeau{
+    background-image: url('http://localhost/codei/assets/images/bande milieu.png');
+    background-attachment:fixed;
+    background-size: cover;
+    min-width: 1140px;
+}
+
+/* ---------- Style Accueil ---------- */
+#imgclicpubguit{
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+#divpubguitLiv{
+    display: flex;
+}
+#divliv{
+    margin-left: 35px;
+}
+#imgbann{
+    width: 1141px;
+}
+#divbann{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: -15px;
+}
+.imgcate{
+    width: 276px;
+    height: 190px;
+}
+#divVentePart{
+    margin-top: 40px;
+    display: flex;
+}
+#divpart{
+    margin-left: 23px;
+}
+.imgvente{
+    margin-left: 10px;
+}
+.colorblue{
+    color: rgb(6, 15, 88);
+}
+
+/* ---------- Style Inscription ---------- */
+.divflex{
+    display: flex;
+}
+.divlabel{
+    margin-left: 65px;
+    width: 110px;
+    text-align: right;
+    margin-right: 5px;
+    line-height: 18px;
+    height: 50px;
+}
+.paddinglabel{
+    padding-top: 8px;
+}
+.divtitleinsc{
+    text-align: center;
+}
+h2{
+    color: rgb(6, 15, 88);
+}
+.inputinsc{
+    height: 35px;
+    width: 250px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(207, 207, 207);
+}
+.divdroit{
+    margin-left: 170px;
+    width: 110px;
+    text-align: right;
+    margin-right: 5px;
+    line-height: 18px;
+    height: 50px;
+}
+.divimgdroite{
+    margin-left: 175px;
+}
+#imgcadre{
+    height: 340px;
+    width: 340px;
+}
+#divsubmitform{
+    text-align: center;
+}
+#divimgbot{
+    margin-left: -15px;
+}
+#imgpictos{
+    width: 1140px;
+}
+#submitform{
+    background: url('http://localhost/codei/assets/images/bouton valider.png');
+    width: 166px;
+    padding: 10px;
+    height: 45px;
+    border: none;
+}
+.spanmess{
+    font-size: 14px;
+}
+#spanmdp{
+    position: absolute;
+    width: 380px;
+}
+.absotail{
+    position: absolute;
+    width: 170px;
+    line-height: 16px;
+    margin-left: 5px;
+}
+.inputtel{
+    position: absolute;
+    height: 32px;
+    width: 185px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(207, 207, 207);
+}
+#numport{
+    margin-left: 127px;
+    margin-top: 64px;
+}
+#numfixe{
+    margin-left: 127px;
+    margin-top: 103px;
+}
+#spannumport{
+    margin-left: 342px;
+    margin-top: 62px;
+}
+#spannumfixe{
+    margin-left: 342px;
+    margin-top: 103px;
+}
+
+/* ---------- Style Mon Compte ---------- */
+#divcompte{
+    text-align: center;
+}
+#divdeco{
+    position: absolute;
+}
+#btnmodifcli{
+    color: black;
+}
+.inputcompte{
+    border: none;
+    border-radius: 10px;
+    padding-left: 5px;
+    height: 30px;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+/* ---------- Style Produit ---------- */
+.imgproduit{
+    width: 240px;
+    height: 240px;
+}
+.divflexproduit{
+    display: flex;
+}
+.sizecard{
+    width: 555px;
+    height: 530px;
+}
+.sizepcard{
+    width: 525px;
+    height: 100px;
+    font-size: 13px;
+}
+.divimgprod{
+    text-align: center;
+}
+#divtitleproduit{
+    text-align: center;
+}
+.divref{
+    color: rgb(168, 168, 168);
+}
+.pPrixproduit{
+    font-size: 18px;
+    font-weight: bold;
+}
+.pconnexproduit{
+    font-size: 13px;
+    color: red;
+}
+#divimgproduit{
+    position: absolute;
+    margin-left: 700px;
+    margin-top: 50px;
+}
+#imgproduit{
+    width: 400px;
+    border-radius: 15px;
+}
+
+/* ---------- Style Panier ---------- */
+.tdimg{
+    background-color: white;
+}
+#tablepanier{
+    text-align: center;
+}
+th, td{
+    border: solid 2px;
+    border-color: rgb(247, 247, 247);
+}
+.imgpanier{
+    width: 200px;
+    height: 200px;
+}
+#imgcorbeille{
+    width: 90px;
+    height: 90px;
+}
+.tddesc{
+    font-size: 14px;
+}
+.tdNom{
+    padding: 10px;
+}
+.tdprix{
+    padding: 10px;
+}
+.derlignepanier{
+    border-left-style: none;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+#tdtotal{
+    font-weight: bold;
+}
+.paddingtotal{
+    padding: 10px;
+}
+#divtitlepanier{
+    text-align: center;
+}
+
+/* ---------- Style Modif ---------- */
+.inputmodif{
+    border: none;
+    border-radius: 10px;
+    padding-left: 5px;
+    height: 30px;
+    width: 400px;
+    margin-bottom: 20px;
+}
+#Description_Produit{
+    width: 400px;
+    height: 200px;
+    padding-left: 5px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.textcenter{
+    text-align: center;
+}
+#spandesc{
+    margin-top: 115px;
+    margin-left: 5px;
+}
+
+/* ---------- Style Admin ---------- */
+.divsousRuAdmin{
+    margin-bottom: 20px;
+}
+.liensousPadmin{
+    text-decoration: none;
+    color: black;
+}
+.liensousPadmin:hover{
+    text-decoration: none;
+    color: rgb(179, 81, 1);
+}
+#divtitleadmin{
+    text-align: center;
+}
+#btnaddproduit{
+    position: absolute;
+    margin-left: 950px;
+    width: 165px;
+}
+
+/* ---------- Style Commande ---------- */
+.inputlivcommande{
+    border: none;
+    margin-right: -3px;
+    text-align: center;
+    height: 30px;
+    margin-bottom: 20px;
+}
+#NumeroAdrLiv_Commande{
+    width: 30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#CPLiv_Commande{
+    width: 60px;
+}
+#VilleLiv_Commande{
+    width: 100px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#AdresseLiv_Commande{
+    width: 250px;
+}
+#NumeroAdrFac_Commande{
+    width: 30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#CPFac_Commande{
+    width: 60px;
+}
+#VilleFac_Commande{
+    width: 100px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#AdresseFac_Commande{
+    width: 250px;
+}
+.inputcommande{
+    border: none;
+    border-radius: 10px;
+    padding-left: 5px;
+    height: 30px;
+    width: 445px;
+    margin-bottom: 20px;
+}
+
+/* ---------- Style footer ---------- */
+#imgfooter{
+    width: 1165px;
+    margin-left: -32px;
+    margin-bottom: -13px;
+}
+.absol{
+    position: absolute;
+}
+footer{
+    color: white;
+    font-size: 18px;
+}
+.spanorange{
+    color: rgb(207, 93, 0);
+}
+#divoffre{
+    margin-top: 30px;
+    margin-left: 18px;
+}
+#divreseausoc{
+    margin-top: 30px;
+    margin-left: 425px;
+}
+#lienfacebook{
+    margin-left: 40px;
+}
+#lientwitter{
+    margin-left: 20px;
+}
+#divtextreso{
+    margin-bottom: 3px;
+}
+#btnmailoffre{
+    font-size: 16px;
+    color: white;
+    background-color: rgb(207, 93, 0);
+    height: 37px;
+    border-radius: 5px;
+    border-color: rgb(179, 81, 1);
+    width: 70px;
+}
+#mailoffre{
+    font-size: 16px;
+    height: 35px;
+    width: 250px;
+    border-radius: 5px;
+}
