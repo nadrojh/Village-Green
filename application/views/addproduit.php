@@ -33,18 +33,23 @@
         <span class="text-danger spanmess" v-show="spanverifquant">{{messquant}}</span><br>
         <?= form_error('Quantite_Produit', '<div class="alert alert-danger">', '</div>'); ?>
 
-        <label for="ID_SousRubrique">Choisissez la sous-rubrique du produit :</label><br>
-        <select class="inputmodif" @input="inputsousR" id='ID_SousRubrique' name='ID_SousRubrique'>
-            <option value="">&nbsp;</option>
+        <label for="ID_Rubrique">Choisissez la sous-rubrique du produit :</label><br>
+        <select class="selectmodif" @input="inputRub" @change="changeRub" id='ID_Rubrique'>
+            <option value="">Selectionnez une rubrique</option>
             <?php
-            foreach ($sousRub as $row): ?>
+            foreach ($Rubrique as $row): ?>
                     
-                    <option value="<?=$row->ID_SousRubrique?>"><?= $row->Nom_SousRubrique ?></option>
+                    <option value="<?=$row->ID_Rubrique?>"><?= $row->Nom_Rubrique ?></option>
             <?php 
             endforeach;  ?>
         </select>
-        <span class="text-danger spanmess" v-show="spanverifsousR">{{messsousR}}</span><br>
-        <?= form_error('ID_SousRubrique', '<div class="alert alert-danger">', '</div>'); ?>
+        <span class="text-danger spanmess" v-show="spanverifRub">{{messRub}}</span><br>
+
+        <div id="divsousR">
+            <select class="inputmodif" @input="inputSousRub" v-show="selectSousRub" name="ID_SousRubrique" id="ID_SousRubrique"></select>
+            <span class="text-danger spanmess" v-show="spanverifsousR">{{messsousR}}</span><br>
+            <?= form_error('ID_SousRubrique', '<div class="alert alert-danger">', '</div>'); ?>
+        </div>
 
         <label for="image">Selectionnez l'image :</label><br>
         <input id="image" name="image" type="file"><br><br>

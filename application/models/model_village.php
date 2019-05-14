@@ -87,5 +87,11 @@
                 return false;
             }            
         }
+
+        public function get_sousRubriqueAjout($id){
+            
+            $data = $this->db->query('select * from sous_rubrique where ID_Rubrique = ?', $id)->result();
+            return $data;
+        }
     }
 ?>

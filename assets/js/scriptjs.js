@@ -978,7 +978,8 @@ var errordesc = false;
 var errorref = false;
 var errorprix = false;
 var errorquant = false;
-var errorsousR = false;
+var errorRub = false;
+var errorSousRub = false;
 
 // Regexp pour un nom produit
 var regexnom = new RegExp(/^[\sA-Za-z0-9]+$/);
@@ -1006,8 +1007,11 @@ var verifaddproduit = new Vue({
         messprix: "",
         spanverifquant: false,
         messquant: "",
+        spanverifRub: false,
+        messRub: "",
         spanverifsousR: false,
-        messsousR: ""
+        messsousR: "",
+        selectSousRub: false
     },
     methods:{
         inputnom: function(){
@@ -1095,20 +1099,38 @@ var verifaddproduit = new Vue({
                 $('#Quantite_Produit').css('border', 'none');
             }
         },
-        inputsousR: function(){
+        inputRub: function(){
+            if($('#ID_Rubrique').val() == ""){
+                this.spanverifRub = true;
+                this.selectSousRub = false;
+                this.messRub = "Merci de renseigner ce champ.";
+                errorRub = true;
+                $('#ID_Rubrique').css('border', 'solid 2px red');
+            }else if(!regexnum.test($('#ID_Rubrique').val())){
+                this.spanverifRub = true;
+                this.messRub = "Saisir une rubrique valide.";
+                errorRub = true;
+                $('#ID_Rubrique').css('border', 'solid 2px red');
+            }else{
+                this.spanverifRub = false;
+                errorRub = false;
+                $('#ID_Rubrique').css('border', 'none');
+            }
+        },
+        inputSousRub: function(){
             if($('#ID_SousRubrique').val() == ""){
                 this.spanverifsousR = true;
                 this.messsousR = "Merci de renseigner ce champ.";
-                errorsousR = true;
+                errorSousRub = true;
                 $('#ID_SousRubrique').css('border', 'solid 2px red');
             }else if(!regexnum.test($('#ID_SousRubrique').val())){
                 this.spanverifsousR = true;
                 this.messsousR = "Saisir une sous-rubrique valide.";
-                errorsousR = true;
+                errorSousRub = true;
                 $('#ID_SousRubrique').css('border', 'solid 2px red');
             }else{
                 this.spanverifsousR = false;
-                errorsousR = false;
+                errorSousRub = false;
                 $('#ID_SousRubrique').css('border', 'none');
             }
         },
@@ -1138,7 +1160,7 @@ var verifaddproduit = new Vue({
                 this.messquant = "Merci de renseigner ce champ.";
                 errorquant = true;
             }
-            if($('#ID_SousRubrique').val() == ""){
+            if($('#ID_Rubrique').val() == ""){
                 this.spanverifsousR = true;
                 this.messsousR = "Merci de renseigner ce champ.";
                 errorsousR = true;
@@ -1146,6 +1168,34 @@ var verifaddproduit = new Vue({
             if(errornom == true || errordesc == true || errorref == true || errorprix == true || errorquant == true || errorsousR == true){
                 e.preventDefault();
             }
+        },
+        changeRub: function(){
+
+            this.selectSousRub = true;
+            if($('#ID_Rubrique').val() == ""){
+                this.selectSousRub = false;
+            }
+            var idrub = $('#ID_Rubrique').val();
+            console.log(idrub);
+
+            var element = document.getElementById("ID_SousRubrique");
+
+            // supprime les elements existant dans le select
+            while (element.firstChild){
+                element.removeChild(element.firstChild);
+            }
+
+            // requete AJAX
+            axios.get("http://localhost/codei/index.php/village/affisousR", {params: {id: idrub}}).then(function(data){
+
+                $("#ID_SousRubrique").append("<option value="+""+">Selectionnez une sous-rubrique</option>");
+                
+                // parcour les donnees recu en ajax et l'insere dans le select
+                data.data.forEach(element => {
+                    
+                    $("#ID_SousRubrique").append("<option value="+element.ID_SousRubrique+">"+element.Nom_SousRubrique+"</option>");
+                });
+            });
         }
     }
 });

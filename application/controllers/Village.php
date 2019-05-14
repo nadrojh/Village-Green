@@ -246,7 +246,7 @@ class Village extends CI_Controller {
         $this->load->model('model_village');
         $this->load->library('form_validation');
 
-        $data["sousRub"] = $this->model_village->get_AllsousRubrique();
+        $data["Rubrique"] = $this->model_village->get_AllRubrique();
 
         $this->form_validation->set_rules('Nom_Produit','Nom du produit','trim|required|regex_match[/^[\sA-Za-z0-9]+$/]');
         $this->form_validation->set_rules('Description_Produit','Description du produit','trim|required|regex_match[/^[A-Za-z0-9\s\(\)\.\,\'\’\_\-\+\&\"\@\%\!\:\;\?\*\/\\\àéèâëêç€ùô]+$/]');
@@ -289,6 +289,19 @@ class Village extends CI_Controller {
 
             redirect(site_url('village/portailadmin'), 'location');
         }
+    }
+
+    public function affisousR(){
+
+        $this->load->helper('form');
+        $this->load->model('model_village');
+
+        $id = $this->input->get();
+
+        $data = $this->model_village->get_sousRubriqueAjout($id);
+
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($data));
     }
 
     public function ajoutpanier($id){
