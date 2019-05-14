@@ -980,6 +980,7 @@ var errorprix = false;
 var errorquant = false;
 var errorRub = false;
 var errorSousRub = false;
+var errorfile = false;
 
 // Regexp pour un nom produit
 var regexnom = new RegExp(/^[\sA-Za-z0-9]+$/);
@@ -1011,6 +1012,8 @@ var verifaddproduit = new Vue({
         messRub: "",
         spanverifsousR: false,
         messsousR: "",
+        spanveriffile: false,
+        messfile: "",
         selectSousRub: false
     },
     methods:{
@@ -1103,9 +1106,11 @@ var verifaddproduit = new Vue({
             if($('#ID_Rubrique').val() == ""){
                 this.spanverifRub = true;
                 this.selectSousRub = false;
+                this.spanverifsousR = false;
                 this.messRub = "Merci de renseigner ce champ.";
                 errorRub = true;
                 $('#ID_Rubrique').css('border', 'solid 2px red');
+                $('#ID_SousRubrique').css('border', 'none');
             }else if(!regexnum.test($('#ID_Rubrique').val())){
                 this.spanverifRub = true;
                 this.messRub = "Saisir une rubrique valide.";
@@ -1132,6 +1137,18 @@ var verifaddproduit = new Vue({
                 this.spanverifsousR = false;
                 errorSousRub = false;
                 $('#ID_SousRubrique').css('border', 'none');
+            }
+        },
+        inputfile: function(){
+            if($('#image').val() == ""){
+                this.spanveriffile = true;
+                this.messfile = "Merci d'inserer une photo.";
+                errorfile = true;
+                $('#image').css('border', 'solid 2px red');
+            }else{
+                this.spanveriffile = false;
+                errorfile = false;
+                $('#image').css('border', 'none');
             }
         },
         clickbtnaddproduit: function(e){
@@ -1161,11 +1178,20 @@ var verifaddproduit = new Vue({
                 errorquant = true;
             }
             if($('#ID_Rubrique').val() == ""){
+                this.spanverifRub = true;
+                this.messRub = "Merci de renseigner ce champ.";
+                errorRub = true;
+            }else if($('#ID_SousRubrique').val() == ""){
                 this.spanverifsousR = true;
                 this.messsousR = "Merci de renseigner ce champ.";
-                errorsousR = true;
+                errorSousRub = true;
             }
-            if(errornom == true || errordesc == true || errorref == true || errorprix == true || errorquant == true || errorsousR == true){
+            if($('#image').val() == ""){
+                this.spanveriffile = true;
+                this.messfile = "Merci d'inserer une photo.";
+                errorfile = true;
+            }
+            if(errornom == true || errordesc == true || errorref == true || errorprix == true || errorquant == true || errorsousR == true || errorSousRub == true || errorfile == true){
                 e.preventDefault();
             }
         },

@@ -52,7 +52,8 @@
         </div>
 
         <label for="image">Selectionnez l'image :</label><br>
-        <input id="image" name="image" type="file"><br><br>
+        <input id="image" @input="inputfile" name="image" type="file">
+        <span class="text-danger spanmess" v-show="spanveriffile">{{messfile}}</span><br><br>
 
         <div>
             <input class="btn btn-secondary" @click="clickbtnaddproduit" type="submit" value="Ajouter">

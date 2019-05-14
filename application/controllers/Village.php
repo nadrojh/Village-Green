@@ -301,6 +301,7 @@ class Village extends CI_Controller {
         $data = $this->model_village->get_sousRubriqueAjout($id);
 
         $this->output->set_content_type('application/json');
+        $this->output->set_header('Access-Control-Allow-Origin:*');
         $this->output->set_output(json_encode($data));
     }
 
@@ -411,26 +412,29 @@ class Village extends CI_Controller {
 
             $this->load->library('upload',$config);
 
-            $type = $_FILES['image']['name'];
+            if($_FILES['image']['name'] != ""){
 
-            $fichier = explode('.',$type);
+                $type = $_FILES['image']['name'];
 
-            $this->db->set('Photo_Produit', $fichier[1]);
-            $this->db->where('ID_Produit', $id);
-            $this->db->update('produits');
+                $fichier = explode('.',$type);
 
-            if(unlink('./assets/images/Produits/'.$id.".jpg")){
+                $this->db->set('Photo_Produit', $fichier[1]);
+                $this->db->where('ID_Produit', $id);
+                $this->db->update('produits');
 
-                unlink('./assets/images/Produits/'.$id.".jpg");
-            }elseif(unlink('./assets/images/Produits/'.$id.".gif")){
+                if(unlink('./assets/images/Produits/'.$id.".jpg")){
 
-                unlink('./assets/images/Produits/'.$id.".gif");
-            }elseif(unlink('./assets/images/Produits/'.$id.".png")){
+                    unlink('./assets/images/Produits/'.$id.".jpg");
+                }elseif(unlink('./assets/images/Produits/'.$id.".gif")){
 
-                unlink('./assets/images/Produits/'.$id.".png");
+                    unlink('./assets/images/Produits/'.$id.".gif");
+                }elseif(unlink('./assets/images/Produits/'.$id.".png")){
+
+                    unlink('./assets/images/Produits/'.$id.".png");
+                }
+
+                $this->upload->do_upload('image');
             }
-
-            $this->upload->do_upload('image');
 
             redirect(site_url('village/accueil'), 'location');
         }
