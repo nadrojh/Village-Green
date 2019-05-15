@@ -74,6 +74,51 @@
             return $data;
         }
 
+        public function get_numFacture($id){
+            
+            $data = $this->db->query('select Numero_Facture from commande where Numero_Commande = ?', $id)->row();
+            return $data->Numero_Facture;
+        }
+
+        public function get_idClient($id){
+            
+            $data = $this->db->query('select Reference_Client from commande where Numero_Commande = ?', $id)->row();
+            return $data->Reference_Client;
+        }
+
+        public function get_Client($id){
+            
+            $data = $this->db->query('select * from client where Reference_Client = ?', $id)->row();
+            return $data;
+        }
+
+        public function get_produitcommande($id){
+            
+            $data = $this->db->query('select * from integre where Numero_Commande = ?', $id)->result();
+            return $data;
+        }
+
+        public function get_idproduitcommande($id){
+            
+            $result = $this->db->query('select ID_Produit from integre where Numero_Commande = ?', $id)->result();
+            foreach($result as $row){
+                $data[] = $row->ID_Produit;
+            }
+            return $data;
+        }
+
+        public function get_detailproduitcommande($idproduit, $idcommande){
+            
+            $this->db->select('*');
+            $this->db->from('produits');
+            $this->db->join('integre', "produits.ID_Produit = integre.ID_Produit");
+            $this->db->where_in('produits.ID_Produit', $idproduit);
+            $this->db->where('integre.Numero_Commande', $idcommande);
+            $data = $this->db->get()->result();
+            
+            return $data;
+        }
+
         public function getMaxId() 
         {
 
@@ -91,6 +136,12 @@
         public function get_sousRubriqueAjout($id){
             
             $data = $this->db->query('select * from sous_rubrique where ID_Rubrique = ?', $id)->result();
+            return $data;
+        }
+
+        public function get_facture($id){
+            
+            $data = $this->db->query('select * from facture where Numero_Facture = ?', $id)->row();
             return $data;
         }
     }

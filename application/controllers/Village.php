@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
- 
+
+// include_once '/vendor/autoload.php';
+
+use Spipu\Html2Pdf\Html2Pdf;
+
 class Village extends CI_Controller {
     
     public function accueil(){
@@ -503,5 +507,31 @@ class Village extends CI_Controller {
             redirect(site_url('village/portailadmin'), 'location');
         }
         
+       
+    }
+
+    public function pdffacture($idcommande){
+
+        $this->load->model('model_village');
+
+        $data["commande"] = $this->model_village->get_Commande($idcommande);
+
+        $idfacture = $this->model_village->get_numFacture($idcommande);
+        $data["facture"] = $this->model_village->get_facture($idfacture);
+
+        $idclient = $this->model_village->get_idClient($idcommande);
+        $data["client"] = $this->model_village->get_Client($idclient);
+
+        $data["produits"] = $this->model_village->get_produitcommande($idcommande);
+
+        $idproduit = $this->model_village->get_idproduitcommande($idcommande);
+        $data["detailproduits"] = $this->model_village->get_detailproduitcommande($idproduit,$idcommande);
+        
+        // $this->load->view('pdffacture', $data);
+        $content = $this->load->view('pdffacture', $data, true);
+        // var_dump($content);
+        $html2pdf = new Html2Pdf();
+        $html2pdf->writeHTML($content);
+        $html2pdf->output('facture_'.$idfacture.'_VillageGreen.pdf');
     }
 }

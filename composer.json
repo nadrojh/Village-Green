@@ -1,0 +1,12 @@
+{
+    "name": "afpa/code-i",
+    "authors": [
+        {
+            "name": "Nadroj",
+            "email": "jordan.halattre@hotmail.com"
+        }
+    ],
+    "require": {
+        "spipu/html2pdf": "^5.2"
+    }
+}

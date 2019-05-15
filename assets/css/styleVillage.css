@@ -612,6 +612,11 @@ th, td{
     margin-bottom: 20px;
 }
 
+/* ---------- Style Commande ---------- */
+#pdffooter{
+    color: rgb(190, 190, 190);
+}
+
 /* ---------- Style footer ---------- */
 #imgfooter{
     width: 1165px;

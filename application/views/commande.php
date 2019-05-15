@@ -86,5 +86,6 @@
         <?= form_error('Numero_Facture', '<div class="alert alert-danger">', '</div>'); ?>
 
         <input class="btn btn-secondary" @click="clickbtncommande" type="submit" value="Modifier">
-    </form>
+    </form><br>
+    <a class="btn btn-outline-info" href="<?= site_url('village/pdffacture/'.$commande->Numero_Commande) ?>">Télécharger la facture</a>
 </div>
