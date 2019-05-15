@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// include_once '/vendor/autoload.php';
-
 use Spipu\Html2Pdf\Html2Pdf;
 
 class Village extends CI_Controller {
@@ -97,17 +95,6 @@ class Village extends CI_Controller {
         }
     }
 
-    // public function verifmail(){
-
-    //         $mail = $this->input->post('mail');
-    //         $data = $this->model_village->get_mail($mail);
-    //         $this->output->set_content_type('application/json');
-    //         $this->output->set_header('Access-Control-Allow-Origin: *');
-    //         $this->output->set_output(json_encode($data));
-        
-        
-    // }
-
     public function inscription(){
 
         $this->load->helper('form');
@@ -158,7 +145,6 @@ class Village extends CI_Controller {
                 $this->load->view('footer');
             }
         }
-        
     }
 
     public function moncompte(){
@@ -227,8 +213,6 @@ class Village extends CI_Controller {
             $this->load->view('moncompte', $data);
             $this->load->view('footer');
         }
-
-        
     }
 
     public function produits($id){
@@ -355,7 +339,7 @@ class Village extends CI_Controller {
     public function suppProduit($id){
 
         //Nous allons passer par un panier temporaire
-        $tmp=array();
+        $tmp = array();
         $tmp['idProduit'] = array();
         $tmp['qteProduit'] = array();
 
@@ -426,6 +410,7 @@ class Village extends CI_Controller {
                 $this->db->where('ID_Produit', $id);
                 $this->db->update('produits');
 
+                //supprime l'ancienne image dans le dossier
                 if(unlink('./assets/images/Produits/'.$id.".jpg")){
 
                     unlink('./assets/images/Produits/'.$id.".jpg");
@@ -527,11 +512,10 @@ class Village extends CI_Controller {
         $idproduit = $this->model_village->get_idproduitcommande($idcommande);
         $data["detailproduits"] = $this->model_village->get_detailproduitcommande($idproduit,$idcommande);
         
-        // $this->load->view('pdffacture', $data);
+        // recupere les données html dans content
         $content = $this->load->view('pdffacture', $data, true);
-        // var_dump($content);
-        $html2pdf = new Html2Pdf();
-        $html2pdf->writeHTML($content);
-        $html2pdf->output('facture_'.$idfacture.'_VillageGreen.pdf');
+        $html2pdf = new Html2Pdf();                                             // declare une variable de la class Html2Pdf
+        $html2pdf->writeHTML($content);                                         // envoie le code html
+        $html2pdf->output('facture_'.$idfacture.'_VillageGreen.pdf');           // sort un pdf avec un nom predefini
     }
 }
