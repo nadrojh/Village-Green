@@ -7,7 +7,7 @@
     width: 300px;
 }
 #tdimg{
-    width: 460px;
+    width: 400px;
 }
 #tdclientpdf{
     border: 1px black solid;
@@ -43,6 +43,10 @@
 strong{
     font-size: 16px;
 }
+#tdfacture{
+    font-size: 18px;
+    line-height: 20px;
+}
 </style>
 <page id="pagepdf" backtop="20mm" backleft="10mm" backright="10mm" backbottom="30mm">
     <table>
@@ -50,7 +54,7 @@ strong{
             <td id="tdimg">
                 <img id="imgpdf" src="http://localhost/codei/assets/images/VillageGreenFact.png" alt="Logo Village">
             </td>
-            <td>
+            <td id="tdfacture">
                 Facture N° <?= $commande->Numero_Facture ?><br>
                 (Commande N° <?= $commande->Numero_Commande ?> du <?= date("d-m-Y", strtotime($commande->Date_Commande)) ?>)<br>
                 Date : <?= date("d-m-Y", strtotime($facture->Date_Facture)) ?>
