@@ -298,11 +298,11 @@ body{
 #divpart{
     margin-left: 23px;
 }
-.imgvente{
-    margin-left: 10px;
-}
 .colorblue{
     color: rgb(6, 15, 88);
+}
+.center{
+    justify-content: center;
 }
 
 /* ---------- Style Inscription ---------- */
